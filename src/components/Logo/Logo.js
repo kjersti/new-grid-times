@@ -19,9 +19,9 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 
-const Link = styled.a`
+const Link = styled.a`  
   font-family: var(--font-family-logo);
-  font-size: 3rem;
+  font-size: var(--font-size);
 `;
 
 const TodaysDate = styled.p`

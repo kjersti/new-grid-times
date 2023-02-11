@@ -1,39 +1,98 @@
-import React from 'react';
-import styled from 'styled-components/macro';
-import { Menu, Search, User } from 'react-feather';
+import React from "react";
+import styled from "styled-components/macro";
+import { Menu, Search, User } from "react-feather";
 
-import { QUERIES } from '../../constants';
+import { QUERIES } from "../../constants";
 
-import MaxWidthWrapper from '../MaxWidthWrapper';
-import Logo from '../Logo';
-import Button from '../Button';
+import MaxWidthWrapper from "../MaxWidthWrapper";
+import Logo from "../Logo";
+import Button from "../Button";
 
 const Header = () => {
   return (
     <header>
-      <SuperHeader>
-        <Row>
-          <ActionGroup>
-            <button>
-              <Search size={24} />
-            </button>
-            <button>
-              <Menu size={24} />
-            </button>
-          </ActionGroup>
-          <ActionGroup>
-            <button>
-              <User size={24} />
-            </button>
-          </ActionGroup>
-        </Row>
-      </SuperHeader>
-      <MainHeader>
-        <Logo />
-      </MainHeader>
+      <MobileHeader>
+        <SuperHeader>
+          <Row>
+            <ActionGroup>
+              <button>
+                <Search size={24} />
+              </button>
+              <button>
+                <Menu size={24} />
+              </button>
+            </ActionGroup>
+            <ActionGroup>
+              <button>
+                <User size={24} />
+              </button>
+            </ActionGroup>
+          </Row>
+        </SuperHeader>
+        <MainHeader>
+          <Logo size="3" />
+        </MainHeader>
+      </MobileHeader>
+      <DesktopHeader>
+        <ActionGroup>
+          <button>
+            <Search size={24} />
+          </button>
+          <button>
+            <Menu size={24} />
+          </button>
+        </ActionGroup>
+        <Logo size="4" />
+          <ButtonWrapper>
+            <Button>Subscribe</Button>
+            <Link>Already a subscriber?</Link>
+        </ButtonWrapper>
+      </DesktopHeader>
     </header>
   );
 };
+
+const MobileHeader = styled.div`
+  --font-size: 3rem;
+
+  @media (${QUERIES.tabletAndUp}) {
+    --font-size: 4rem;
+  }
+
+  @media (${QUERIES.desktopAndUp}) {
+    display: none;
+  }
+`;
+
+const DesktopHeader = styled.div`
+  --font-size: 4rem;
+  display: none;
+
+  @media (${QUERIES.desktopAndUp}) {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    margin-top: 16px;
+    margin-bottom: 80px;
+  }
+`;
+
+const ButtonWrapper = styled.div`  
+  align-self: flex-end;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+`;
+
+const Link = styled.a`
+  font-family: var(--font-family-serif);
+  font-style: italic;
+  font-size: ${14 / 16}rem;
+  color: var(--color-gray-900);
+  text-decoration: underline;
+`;
 
 const SuperHeader = styled.div`
   padding: 16px 0;
@@ -65,6 +124,10 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
+
+  @media (${QUERIES.tabletAndUp}) {
+    margin-bottom: 72px;
+  }
 `;
 
 export default Header;

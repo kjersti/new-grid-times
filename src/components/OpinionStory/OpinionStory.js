@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { QUERIES } from '../../constants';
 
 const OpinionStory = ({ id, title, author, avatar }) => {
   return (
-    <a href={`/story/${id}`}>
+    <StoryLink href={`/story/${id}`}>
       <Wrapper>
         <Avatar alt="" src={avatar} />
         <div>
@@ -11,12 +12,44 @@ const OpinionStory = ({ id, title, author, avatar }) => {
           <ArticleTitle>{title}</ArticleTitle>
         </div>
       </Wrapper>
-    </a>
+    </StoryLink>
   );
 };
 
+const StoryLink = styled.a`
+  flex: 1;
+  padding-bottom: 16px;
+  &:not(:first-of-type) {
+    padding-top: 16px;
+  }
+  
+  &:not(:last-of-type) {
+    border-bottom: 1px solid var(--color-gray-300);  
+  }  
+
+  @media (${QUERIES.tabletOnly}) {   
+    padding: 0;
+    &:not(:first-of-type) {
+      padding: 0;      
+    }    
+    &:not(:last-of-type) {
+      padding: 0;
+      border-bottom: none;
+    }    
+  }
+`;
+
 const Wrapper = styled.article`
-  color: var(--color-gray-900);
+  color: var(--color-gray-900);  
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap:24px;  
+  
+  @media (${QUERIES.tabletOnly}) {
+    display: revert;  
+  }  
 `;
 
 const Avatar = styled.img`
