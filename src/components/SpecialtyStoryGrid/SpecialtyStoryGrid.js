@@ -51,14 +51,14 @@ const Wrapper = styled.div`
   display: grid;  
   gap: 48px;
 
-  @media (${QUERIES.desktopAndUp}) {
+  @media (${QUERIES.laptopAndUp}) {
     gap: 0;
     grid-template-columns: 1fr 1fr;
   }
 `;
 
 const MarketsSection = styled.section`
-  @media (${QUERIES.desktopAndUp}) {
+  @media (${QUERIES.laptopAndUp}) {
     padding-right: 24px;
     border-right: 1px solid var(--color-gray-300); 
   }
@@ -75,7 +75,7 @@ const MarketCards = styled.div`
 
 const SportsSection = styled.section`
   overflow: auto;    
-  @media (${QUERIES.desktopAndUp}) {
+  @media (${QUERIES.laptopAndUp}) {
     margin-left: 24px;    
   }
 `;

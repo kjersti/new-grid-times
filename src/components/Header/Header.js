@@ -30,7 +30,7 @@ const Header = () => {
           </Row>
         </SuperHeader>
         <MainHeader>
-          <Logo size="3" />
+          <Logo />
         </MainHeader>
       </MobileHeader>
       <DesktopHeader>
@@ -42,7 +42,7 @@ const Header = () => {
             <Menu size={24} />
           </button>
         </ActionGroup>
-        <Logo size="4" />
+        <Logo  />
           <ButtonWrapper>
             <Button>Subscribe</Button>
             <Link>Already a subscriber?</Link>
@@ -59,7 +59,7 @@ const MobileHeader = styled.div`
     --font-size: 4rem;
   }
 
-  @media (${QUERIES.desktopAndUp}) {
+  @media (${QUERIES.laptopAndUp}) {
     display: none;
   }
 `;
@@ -68,7 +68,7 @@ const DesktopHeader = styled.div`
   --font-size: 4rem;
   display: none;
 
-  @media (${QUERIES.desktopAndUp}) {
+  @media (${QUERIES.laptopAndUp}) {
     display: flex;
     align-items: baseline;
     justify-content: space-around;
@@ -126,6 +126,12 @@ const MainHeader = styled(MaxWidthWrapper)`
   margin-bottom: 48px;
 
   @media (${QUERIES.tabletAndUp}) {
+    margin-top: 48px;
+    margin-bottom: 72px;
+  }
+
+  @media (${QUERIES.laptopAndUp}) {
+    margin-top: 16px;
     margin-bottom: 72px;
   }
 `;

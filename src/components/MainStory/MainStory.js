@@ -48,7 +48,7 @@ const Abstract = styled.p`
     --lines-preview: 16;
   }
 
-  @media (${QUERIES.desktopAndUp}) {
+  @media (${QUERIES.laptopAndUp}) {
     --lines-preview: 8;
   }
 `;
